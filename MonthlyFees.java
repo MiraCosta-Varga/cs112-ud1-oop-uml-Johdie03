@@ -1,4 +1,4 @@
-/*public class MonthlyFees extends Checkings {
+public class MonthlyFees extends Checkings {
     
 }
-*/
+
