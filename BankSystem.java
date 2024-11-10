@@ -46,8 +46,9 @@ public abstract class BankSystem {
         if (original == null) {
             throw new IllegalArgumentException("Bad deep copy");
         } else {
-            this.setAll(original.name, original.email, original.password, original.address, original.birthday,
+           /*  this.setAll(original.name, original.email, original.password, original.address, original.birthday,
                     original.ssn);
+                    */
         }
     }
     
@@ -77,7 +78,7 @@ public abstract class BankSystem {
     public void setSsn(int ssn) {
         this.ssn = ssn;
     }
-    
+
 /* 
     public boolean setAll(String name, String email, String password, String address, String birthday, int ssn) {
  return this.setName(name) && this.setEmail(email) && this.setPassword(password) && this.setAddress(address) && this.setBirthday(birthday) && this.setSsn(ssn);
