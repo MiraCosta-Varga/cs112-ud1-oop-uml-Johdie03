@@ -18,13 +18,6 @@ public class MonthlyFees {
     }
 
     //getters
-    public double getFees() {
-        return fees;
-    }
-
-    public double minAccBalance() {
-        return minAccBalance;
-    }
 
 }
 
