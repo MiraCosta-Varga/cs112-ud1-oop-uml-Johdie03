@@ -1,4 +1,9 @@
-public class MonthlyFees extends Checkings {
+public class MonthlyFees {
+  
+    private double fees;
+    private double minAccBalance;
     
+
+
 }
 
