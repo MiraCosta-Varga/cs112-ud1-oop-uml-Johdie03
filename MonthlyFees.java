@@ -17,6 +17,14 @@ public class MonthlyFees {
         this.minAccBalance = minAccBalance;
     }
 
+    //getters
+    public double getFees() {
+        return fees;
+    }
+
+    public double minAccBalance() {
+        return minAccBalance;
+    }
 
 }
 
