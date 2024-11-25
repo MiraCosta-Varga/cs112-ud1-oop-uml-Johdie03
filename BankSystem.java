@@ -48,16 +48,27 @@ public abstract class BankSystem {
         if (original == null) {
             throw new IllegalArgumentException("Bad deep copy");
         } else {
-            /*  this.setAll(original.name, original.email, original.password, original.address, original.birthday,
+              this.setAll(original.name, original.email, original.password, original.address, original.birthday,
                     original.ssn);
-                    */
+                    
         }
     }
 
     /* setters */
+     /*
+     public String setName(String name) {
+    
+    if (name == null) {
+         throw new IllegalArgumentException("ERROR- Please enter your name: ");
+         }
+        return this.name = name;
+     }
+     */
+    
     public void setName(String name) {
-        this.name = name;
+         this.name = name;
     }
+    
 
     public void setEmail(String email) {
         this.email = email;
@@ -114,30 +125,29 @@ public abstract class BankSystem {
         return this.ssn;
     }
 
-/* Other Methods */
-@Override
+    /* Other Methods */
+    @Override
     public boolean equals(Object other) {
-    /*if(this == other) return true;
-    else if (other == null || getClass() != other.getClass())
+        /*if(this == other) return true;
+        else if (other == null || getClass() != other.getClass())
         return false;
         */
-  if (other == null || !(other instanceof BankSystem)) {
+        if (other == null || !(other instanceof BankSystem)) {
             return false;
         } else {
             return true;
         }
-            
+
     }
 
     @Override
     public String toString() {
-        return 
-        "Name: " + this.name +
-        "Password: " + this.password + 
-        "Email: " + this.email + 
-        "Birthday: " + this.birthday +
-        "Address: " + this.address +
-        "SSN: " + this.ssn;
+        return "Name: " + this.name +
+                "\nPassword: " + this.password +
+                "\nEmail: " + this.email +
+                "\nBirthday: " + this.birthday +
+                "\nAddress: " + this.address +
+                "\nSSN: " + this.ssn;
 
     }
 }

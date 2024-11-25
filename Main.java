@@ -16,24 +16,28 @@ public class Main {
         // Declaring Variables
         String name, password, email, address, birthday;
         double checkingsAmount = 0, savingsAmount = 0;
+        double depositAmount=0;
         int ssn;
-        int choice = 0, count = 0;
+        int choice = 0, count = 0, choice2=0;
+        String option;
 
 
-        /*** TESTER  ***/
-        BankSystemTester.main(null);
+        // TESTER  
+        //BankSystemTester.main(null);
         
 
 
-/*
+
         //Getting info from user 
         //loop through choices first
 
-            System.out.println("Welcome!\n");
+        System.out.println("Welcome!\n");
+            
             System.out.println("Please get started by choosing an option below \n");
             System.out.println(" 1) Create an account");
             System.out.println(" 2) Obtain information about account fees");
             System.out.println(" 3) Exit");
+            System.out.print(" >>>");
             choice = keyboard.nextInt();
             keyboard.nextLine();
 
@@ -61,6 +65,7 @@ public class Main {
                 //String name, String email, String password, String address, String birthday, int ssn,
                 //double savingsAmount
                 users[count++] = new Savings(name, email, password, address, birthday, ssn, savingsAmount);
+                System.out.println("Account Created!");
             }
 
                 else if (choice == 2) {
@@ -76,15 +81,62 @@ public class Main {
                 else{
                     System.out.println("ERROR: Please enter 1-3 from the options stated");
                 }
-          
-*/
+
+                
+                System.out.println("\nWhat would you like to do with your account? ");
+                keyboard.nextLine();
+
+                do{
+                System.out.println("\nPlease pick from the following options below: ");
+                System.out.println(" 1) Deposit Money"); //ask whether checkings or savings
+                System.out.println(" 2) Withdraw Money"); //ask whether checkings or savings
+                System.out.println(" 3) Transfer Money"); 
+                System.out.println(" 4) View Account's Details");
+                System.out.println(" 5) Exit");
+                System.out.print(" >>>");
+                choice = keyboard.nextInt();
+                keyboard.nextLine();
+                 
+                if (choice == 1) {
+                    System.out.print("Would you like to deposit money to your Checkings or Savings: ");
+                    option = keyboard.nextLine().toUpperCase();
+
+                    switch (option) {
+                        case "SAVINGS":
+                            System.out.println("\nDepositing to Savings...");
+                            System.out.print("Please enter amount you are depositing: $");
+                            depositAmount = keyboard.nextDouble();
+                            savingsAmount += depositAmount;
+                            break;
+
+                        case "CHECKINGS":
+                            System.out.println("\nDepositing to Checkings...");
+                            System.out.print("Please enter amount you are depositing: $");
+                            depositAmount = keyboard.nextDouble();
+                            checkingsAmount += depositAmount;
+                            break;
+                    }
+                    System.out.println("Current amount in checkings after deposit $" + checkingsAmount);
+                    System.out.println("Current amount in savings after deposit $" + savingsAmount);
+                }
+                else if (choice == 2) {
+
+                }
+                else if (choice == 3) {
+
+                }
+                else if (choice == 4) {
+
+                }
+                else{
+                    break;
+                }
+                
 
 
-
-
+            } while (true);
+            
     }
-
-
 
 
 
