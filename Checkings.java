@@ -10,6 +10,10 @@ public class Checkings extends BankSystem{
         super(name, email, password, address, birthday, ssn);
         this.checkingsAmount = checkingsAmount;
     }
+    /* Default Constructor */
+    public Checkings() {
+        this(DEFAULT_NAME, DEFAULT_EMAIL, DEFAULT_PASSWORD, DEFAULT_ADDRESS, DEFAULT_BIRTHDAY, DEFAULT_SSN, DEFAULT_CHECKINGSAMOUNT);
+    }
     
     //Setters
     public void setCheckingsAmount(double checkingsAmount) {
