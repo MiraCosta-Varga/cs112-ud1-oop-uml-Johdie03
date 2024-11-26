@@ -1,13 +1,22 @@
 public class Savings extends BankSystem {
     
+    //Fields
     private double savingsAmount;
 
     //Constructor
+    //Full Constructor
     public Savings(String name, String email, String password, String address, String birthday, int ssn,
             double savingsAmount) {
         super(name, email, password, address, birthday, ssn);
         this.savingsAmount = savingsAmount;
     }
+
+    //Default Constructor
+    /* Default Constructor */
+    public Savings() {
+        this(DEFAULT_NAME, DEFAULT_EMAIL, DEFAULT_PASSWORD, DEFAULT_ADDRESS, DEFAULT_BIRTHDAY, DEFAULT_SSN, DEFAULT_SAVINGS_AMOUINT);
+    }
+
 
 
     //Setters
@@ -28,11 +37,31 @@ public class Savings extends BankSystem {
 
     @Override
     public boolean equals(Object other) {
-        if(this == other) return true;
+        if (this == other)
+            return true;
         if (other == null || getClass() != other.getClass())
             return false;
         BankSystem otherBank = (BankSystem) other;
         return super.equals(other) &&
                 this.savingsAmount == otherBank.savingsAmount;
     }
+    
+    //Method for Money transfer from Checkings to Savings
+   /*  public void transferCheckingsToSavings(double transferAmount) {
+        if (transferAmount >= checkingsAmount) {
+            System.out.println ("You do not have enough money in your Checkings") ;
+
+
+        } else {
+            savingsAmount += transferAmount;
+            checkingsAmount -= transferAmount;
+            System.out.println ("Transfer Successful!\n Amount Transferred: $" + transferAmount + 
+                    "\nCurrent Balance in Checkings: " + checkingsAmount +
+                    "\nCurrent Balanace in Savings: " + savingsAmount);
+
+                }
+
+        }
+*/
+        
 }

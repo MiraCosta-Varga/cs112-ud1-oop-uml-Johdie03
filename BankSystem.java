@@ -26,7 +26,7 @@ public abstract class BankSystem {
     public static final int DEFAULT_SSN = 123456789;
 
     public static final double DEFAULT_CHECKINGSAMOUNT = 0;
-
+    public static final double DEFAULT_SAVINGS_AMOUINT = 0;
     /***  Constructor Methods ***/
     /* Default Constructor */
     public BankSystem() {
