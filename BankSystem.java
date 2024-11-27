@@ -16,6 +16,7 @@ public abstract class BankSystem {
     private int ssn;
     protected double checkingsAmount;
     protected double savingsAmount;
+    protected double transferAmount;
 
     //Constance Variables
     public static final String DEFAULT_NAME = "Michael Smith";
@@ -149,5 +150,28 @@ public abstract class BankSystem {
                 "\nAddress: " + this.address +
                 "\nSSN: " + this.ssn;
 
+    }
+
+
+
+    //OTHER METHODS
+    public void checkingsWidthraw(double amount) {
+        double withdrawAmount = amount;
+        checkingsAmount -= withdrawAmount;
+    }
+
+    public void checkingsDeposit(double amount) {
+        double depositAmount = amount;
+        checkingsAmount += depositAmount;
+    }
+
+    public void savingsWidthraw(double amount) {
+        double withdrawAmount = amount;
+        savingsAmount -= withdrawAmount;
+    }
+
+    public void savingsDeposit(double amount) {
+        double depositAmount = amount;
+        savingsAmount += depositAmount;
     }
 }

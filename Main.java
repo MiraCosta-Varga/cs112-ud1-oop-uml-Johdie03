@@ -9,7 +9,7 @@
  */
 import java.util.Scanner;
 import java.text.NumberFormat;
-
+//HELLO
 public class Main {
     static BankSystem[] users = new BankSystem[50];
     static Scanner keyboard = new Scanner(System.in);
@@ -66,7 +66,7 @@ public class Main {
             //double savingsAmount
             users[count] = new Savings(name, email, password, address, birthday, ssn, savingsAmount);
             count++;
-            Savings savingsAcc = new Savings();
+            
             System.out.println("Account Created!");
         }
 
@@ -138,12 +138,12 @@ public class Main {
                         checkingsAmount -= withdrawAmount;
                         break;
                 }
-                System.out.println("Current amount in checkings after withdraw $" + currency.format(checkingsAmount));
-                System.out.println("Current amount in savings after withdraw $" + currency.format(savingsAmount));
+                System.out.println("Current amount in checkings after withdraw " + currency.format(checkingsAmount));
+                System.out.println("Current amount in savings after withdraw " + currency.format(savingsAmount));
 
             } else if (choice == 3) { //transfer
 
-                System.out.println("1) Transfer from Checkings to Savings");
+                System.out.println("\n1) Transfer from Checkings to Savings");
                 System.out.println("2) Transfer from Savings to Checkings");
                 System.out.print("Please choose from the following options above: ");
                 choice2 = keyboard.nextInt();
@@ -151,6 +151,8 @@ public class Main {
                 moneyTransfer(transferAmount, choice2);
 
             } else if (choice == 4) { //View Acc Detail
+                System.out.println("\nAccount Details: ");
+                
 
             } else {
                 System.out.println("Exiting out of Account options...");
@@ -160,25 +162,36 @@ public class Main {
         } while (true);
         System.out.println();
     }
-
+    //Savings savingsAcc = new Savings();
     //Transfer Method
     public static void moneyTransfer(double transferAmount, int choice2) {
-        if (choice2 == 1) { //Transfer from Checkings to Savings
-            System.out.println("Transfering from Checkings to Savings... ");
-            System.out.print("Please enter amount of money you will be transferring: $");
-            transferAmount = keyboard.nextDouble();
+        System.out.println("Transfering from Checkings to Savings... ");
+        System.out.print("Please enter amount of money you will be transferring: $");
+        transferAmount = keyboard.nextDouble();
+          if (choice2 == 1) { //Transfer from Checkings to Savings
+  
+              Checkings checkingsUser = (Checkings) users[count - 2];
+              Savings savingsUser = (Savings) users[count - 1];
+  
+              double checkingsBalance = checkingsUser.getCheckingsAmount();
+              double savingsBalance =savingsUser.getSavingsAmount();
+  
 
-            double checkingsBalance = ((Checkings) users[count - 2]).getCheckingsAmount();
-            double savingsBalance = ((Savings) users[count - 1]).getSavingsAmount();
 
-            if (transferAmount <= checkingsBalance) {
-                ((Checkings) users[count - 2]).transferCheckingsToSavings(transferAmount);
-                ((Savings) users[count - 1]).transferCheckingsToSavings(transferAmount);
-            } else {
-                System.out.println ("You do not have enough money in your Checkings");
-            }
+              Checkings.checkingsTransfer(transferAmount, choice2);
 
-            /*  if (choice2 == 1){ //Transfer from Checkings to Savings
+              /*
+              if (transferAmount <= checkingsBalance) {
+                    checkingsUser.transferCheckingsToSavings(transferAmount);
+                    savingsUser.transferCheckingsToSavings(transferAmount);
+                    System.out.println("Transfer Successful!\n Amount Transferred: $" + transferAmount +
+                  "\nCurrent Balance in Checkings: " + checkingsUser.getCheckingsAmount() +
+                  "\nCurrent Balanace in Savings: " + savingsUser.getSavingsAmount());
+              } else {
+                  System.out.println ("You do not have enough money in your Checkings");
+              }
+
+              if (choice2 == 1){ //Transfer from Checkings to Savings
                  System.out.println("Transfering from Checkings to Savings... ");
                  System.out.print("Please enter amount of money you will be transferring: $");
                  transferAmount = keyboard.nextDouble();

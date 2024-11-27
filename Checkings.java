@@ -2,7 +2,7 @@
 public class Checkings extends BankSystem {
     //Fields
     private double checkingsAmount;
-    protected double transferAmount;
+    private double totalCheckingsAmount = 0;
 
     //Constructors
     //Full Constructor
@@ -10,6 +10,7 @@ public class Checkings extends BankSystem {
             double checkingsAmount) {
         super(name, email, password, address, birthday, ssn);
         this.checkingsAmount = checkingsAmount;
+        totalCheckingsAmount += checkingsAmount;
     }
 
     // Default Constructor
@@ -65,28 +66,55 @@ public class Checkings extends BankSystem {
     */
 
     //transfer from Checkings to Savings
-    public void transferCheckingsToSavings(double transferAmount) {
-        //savingsAmount += transferAmount;
-        checkingsAmount -= transferAmount;
-        System.out.println ("Transfer Successful!\n Amount Transferred: $" + transferAmount + 
-                "\nCurrent Balance in Checkings: " + checkingsAmount +
-                "\nCurrent Balanace in Savings: " + savingsAmount);
 
-       /*  if (transferAmount > this.getCheckingsAmount() ) {
-            System.out.println ("You do not have enough money in your Checkings") ;
-    
-    
-        } else {
+    public void transferCheckingsToSavings(double transferAmount) {
             savingsAmount += transferAmount;
             checkingsAmount -= transferAmount;
-            System.out.println("Transfer Successful!\n Amount Transferred: $" + transferAmount +
+            System.out.println ("Transfer Successful!\n Amount Transferred: $" + transferAmount + 
                     "\nCurrent Balance in Checkings: " + checkingsAmount +
                     "\nCurrent Balanace in Savings: " + savingsAmount);
+            
+             if (transferAmount > this.getCheckingsAmount() ) {
+                System.out.println ("You do not have enough money in your Checkings") ;
+            
+            
+            } else {
+                savingsAmount += transferAmount;
+                checkingsAmount -= transferAmount;
+                System.out.println("Transfer Successful!\n Amount Transferred: $" + transferAmount +
+                        "\nCurrent Balance in Checkings: " + checkingsAmount +
+                        "\nCurrent Balanace in Savings: " + savingsAmount);
+            }
+            
+            }
+                     
+        
 
-        }
-                 */
-    }
+
+        public void checkingsWidthraw(double amount) {
+                    double withdrawAmount = amount;
+                    checkingsAmount -= withdrawAmount;
+                }
+            
+                public void checkingsDeposit(double amount) {
+                    double depositAmount = amount;
+                    checkingsAmount += depositAmount;
+                }
                     
+            /* 
+                public static void checkingsTransfer(double transferAmount, int choice2) {
+        
+                    if (transferAmount > totalCheckingsAmount) {
+                    System.out.println ("You do not have enough money in your Checkings");    
+                    } else if (transferAmount < totalCheckingsAmount) {
+                        checkingsWidthraw(transferAmount);
+                savingsDeposit(transferAmount);
+
+            }
+
+
+    }
+    */
 
 }
 
