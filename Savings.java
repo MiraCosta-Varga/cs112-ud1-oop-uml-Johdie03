@@ -47,21 +47,13 @@ public class Savings extends BankSystem {
     }
     
     //Method for Money transfer from Checkings to Savings
-   /*  public void transferCheckingsToSavings(double transferAmount) {
-        if (transferAmount >= checkingsAmount) {
-            System.out.println ("You do not have enough money in your Checkings") ;
-
-
-        } else {
-            savingsAmount += transferAmount;
-            checkingsAmount -= transferAmount;
-            System.out.println ("Transfer Successful!\n Amount Transferred: $" + transferAmount + 
-                    "\nCurrent Balance in Checkings: " + checkingsAmount +
-                    "\nCurrent Balanace in Savings: " + savingsAmount);
-
-                }
-
-        }
-*/
+    public void transferCheckingsToSavings(double transferAmount) {
+        savingsAmount += transferAmount;
+        /*checkingsAmount -= transferAmount;
+        System.out.println("Transfer Successful!\n Amount Transferred: $" + transferAmount +
+                "\nCurrent Balance in Checkings: " + checkingsAmount +
+                "\nCurrent Balanace in Savings: " + savingsAmount);
+                */
+    }
         
 }
