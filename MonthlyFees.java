@@ -1,4 +1,4 @@
-public class MonthlyFees {
+public class MonthlyFees implements AccountType {
   
     private double fees;
     private double minAccBalance;

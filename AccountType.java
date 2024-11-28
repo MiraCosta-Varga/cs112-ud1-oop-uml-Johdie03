@@ -1,3 +1,3 @@
-public class AccountType {
+public interface AccountType {
     
 }
