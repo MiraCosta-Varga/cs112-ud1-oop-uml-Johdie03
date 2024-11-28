@@ -178,7 +178,7 @@ public class Main {
   
 
 
-              Checkings.checkingsTransfer(transferAmount, choice2);
+             // Checkings.checkingsTransfer(transferAmount, choice2);
 
               /*
               if (transferAmount <= checkingsBalance) {
