@@ -152,7 +152,8 @@ public class Main {
 
             } else if (choice == 4) { //View Acc Detail
                 System.out.println("\nAccount Details: ");
-                
+                System.out.println("\n Current balance in Checkings: " + checkingsAmount);
+                System.out.println("\n Current balance in Savings: " + savingsAmount);
 
             } else {
                 System.out.println("Exiting out of Account options...");
