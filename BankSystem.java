@@ -3,10 +3,13 @@
  * abstract class to allow inheritance for different account types
  */
 import java.text.NumberFormat;
+import java.time.LocalDate;
+import java.util.Date;
 
 public abstract class BankSystem {
 
     protected static NumberFormat currency = NumberFormat.getCurrencyInstance();
+    
     // Instance Variables
     private String name;
     private String password;
@@ -14,8 +17,8 @@ public abstract class BankSystem {
     private String address;
     private String birthday;
     private int ssn;
-    protected double checkingsAmount;
-    protected double savingsAmount;
+    protected double checkingsAmount=0;
+    protected double savingsAmount=0;
     protected double transferAmount;
 
     //Constance Variables
@@ -23,17 +26,20 @@ public abstract class BankSystem {
     public static final String DEFAULT_PASSWORD = "Smith123";
     public static final String DEFAULT_EMAIL = "michaelS@gmail.com";
     public static final String DEFAULT_ADDRESS = "123 Street City, CA 92000, US";
-    public static final String DEFAULT_BIRTHDAY = "01/01/2001";
+    public static final String DEFAULT_BIRTHDAY_STRING = "01/01/2000";
+    //public static final Date DEFAULT_BIRTHDAY = 0;
     public static final int DEFAULT_SSN = 123456789;
 
-    public static final double DEFAULT_CHECKINGSAMOUNT = 0;
-    public static final double DEFAULT_SAVINGS_AMOUINT = 0;
+    public static final double DEFAULT_CHECKINGSAMOUNT = 50;
+    public static final double DEFAULT_SAVINGS_AMOUINT = 50;
+
     /***  Constructor Methods ***/
     /* Default Constructor */
-    public BankSystem() {
+    /*public BankSystem() {
         this(DEFAULT_NAME, DEFAULT_EMAIL, DEFAULT_PASSWORD, DEFAULT_ADDRESS, DEFAULT_BIRTHDAY, DEFAULT_SSN);
     }
-
+        */
+    
     /* Full Constructor */
     public BankSystem(String name, String email, String password, String address, String birthday, int ssn) {
         this.name = name;
@@ -83,7 +89,7 @@ public abstract class BankSystem {
         this.address = address;
     }
 
-    public void setBirthday(String birthday) {
+    public void setBirthday(String birthday)  {
         this.birthday = birthday;
     }
 
@@ -111,11 +117,11 @@ public abstract class BankSystem {
     }
 
     public String getEmail() {
-        return this.password;
+        return this.email;
     }
 
     public String getBirthday() {
-        return this.password;
+        return this.birthday;
     }
 
     public String getAddress() {
@@ -152,6 +158,13 @@ public abstract class BankSystem {
 
     }
 
+    //calculate age method
+    /*public static int age(Date birthday) {
+        LocalDate currentDate = LocalDate.now();
+        
+    }
+        */
+
 
 
     //OTHER METHODS
@@ -174,4 +187,7 @@ public abstract class BankSystem {
         double depositAmount = amount;
         savingsAmount += depositAmount;
     }
+
+
+
 }

@@ -57,10 +57,12 @@ public class BankSystemTester {
 
     */
 
+    /* 
     public static void testSetPassword() {
         BankSystem test = new Checkings();
 
         System.out.println("\nTESTING setPassword() METHOD: \n");
     }
+        */
 
 }
