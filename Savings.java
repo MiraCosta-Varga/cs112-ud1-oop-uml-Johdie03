@@ -2,6 +2,7 @@ public class Savings extends BankSystem {
     
     //Fields
     private double savingsAmount;
+    private double totalSavingsAmount = 0;
 
     //Constructor
     //Full Constructor

@@ -18,7 +18,7 @@ public class Main {
 
     public static void main(String[] args) {
         // Declaring Variables
-        String name, password, email, address, birthday;
+        String name, password, email, address, birthday, accType = null;
         double checkingsAmount = 0, savingsAmount = 0;
         double depositAmount = 0, withdrawAmount = 0, transferAmount = 0;
         int ssn;
@@ -55,8 +55,49 @@ public class Main {
             password = keyboard.nextLine();
             System.out.print("Address: ");
             address = keyboard.nextLine();
-            System.out.print("Social Security (last 4 digits) ");
+            System.out.print("Social Security (last 4 digits): ");
             ssn = keyboard.nextInt();
+            System.out.print("\nWould you like to open a: "
+                    + "\n(1) student bank account "
+                    + "\n(2) business bank account "
+                    + "\n(3) normal bank account"
+                    + "\n>>> ");
+            choice = keyboard.nextInt();
+            
+            if (choice <= 0 || choice >= 4) {
+                System.out.print("Please pick an option from above (1-3): ");
+                choice = keyboard.nextInt();
+            }
+            else {
+                switch (choice) {
+                    case 1:
+                        accType = "Student";
+                        break;
+                    case 2:
+                        accType = "Business";
+                        break;
+                    case 3:
+                        accType = "Regular";
+                        break;
+
+                }
+            
+
+            if ("Student".equalsIgnoreCase(accType)) {
+                StudentAcc studentAccType;
+                studentAccType = new StudentAcc();
+                System.out.println("Account Created!");
+            } else if ("Business".equalsIgnoreCase(accType)) {
+                BusinessAcc businessAccType;
+                businessAccType = new BusinessAcc();
+                System.out.println("Account Created!");
+            } else if ("Regular".equalsIgnoreCase(accType)) {
+                RegularAcc regularAccType;
+                regularAccType = new RegularAcc();
+                System.out.println("Account Created!");
+            } else {
+                System.out.println("Please pick one option (1-3)");
+            }
 
             //String name, String email, String password, String address, String birthday, int ssn,
             //double checkingsAmount
@@ -66,9 +107,9 @@ public class Main {
             //double savingsAmount
             users[count] = new Savings(name, email, password, address, birthday, ssn, savingsAmount);
             count++;
-            
-            System.out.println("Account Created!");
+
         }
+    }
 
         else if (choice == 2) {
             System.out.println("INFO"); //get information about monthly fees
@@ -92,7 +133,7 @@ public class Main {
             System.out.println(" 1) Deposit Money"); //ask whether checkings or savings
             System.out.println(" 2) Withdraw Money"); //ask whether checkings or savings
             System.out.println(" 3) Transfer Money within Bank Account");
-            System.out.println(" 4) View Account's Details");
+            System.out.println(" 4) View Account Details");
             System.out.println(" 5) Exit");
             System.out.print(" >>>");
             choice = keyboard.nextInt();
@@ -153,7 +194,8 @@ public class Main {
             } else if (choice == 4) { //View Acc Detail
                 System.out.println("\nAccount Details: ");
                 System.out.println("\n Current balance in Checkings: " + currency.format(checkingsAmount));
-                System.out.println("\n Current balance in Savings: " + currency.format(savingsAmount));
+                System.out.println(" Current balance in Savings: " + currency.format(savingsAmount));
+                System.out.printf(" Monthly Fees: " + currency.format(accTypeFees(accType)));
 
             } else {
                 System.out.println("Exiting out of Account options...");
@@ -163,6 +205,22 @@ public class Main {
         } while (true);
         System.out.println();
     }
+    //determine fees from type of account
+  public static double accTypeFees(String accType){
+    /*
+    double monthlyFees;
+    StudentAcc studentAccount = new StudentAcc();
+    BusinessAcc businessAccount = new BusinessAcc();
+    */
+    if (accType.equalsIgnoreCase("Student")){
+        return 0.99;
+    } else if (accType.equalsIgnoreCase("Business")){
+        return 7.99;
+    } else {
+      return 4.99;
+    }
+    
+  }
     //Savings savingsAcc = new Savings();
     //Transfer Method
     public static void moneyTransfer(double transferAmount, int choice2) {

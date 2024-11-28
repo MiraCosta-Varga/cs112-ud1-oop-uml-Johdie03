@@ -69,9 +69,9 @@ public class Checkings extends BankSystem {
 
     public void transferCheckingsToSavings(double transferAmount) {
             savingsAmount += transferAmount;
-            checkingsAmount -= transferAmount;
+            totalCheckingsAmount -= transferAmount;
             System.out.println ("Transfer Successful!\n Amount Transferred: $" + transferAmount + 
-                    "\nCurrent Balance in Checkings: " + checkingsAmount +
+                    "\nCurrent Balance in Checkings: " + totalCheckingsAmount +
                     "\nCurrent Balanace in Savings: " + savingsAmount);
             
              if (transferAmount > this.getCheckingsAmount() ) {

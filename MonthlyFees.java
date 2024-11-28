@@ -1,5 +1,16 @@
+
+
+interface MonthlyFees{
+   double monthlyFees(); //calculates montly fees depending on accountType
+   String accType();
+
+
+}
+
+/*
+
 public class MonthlyFees implements AccountType {
-  
+  static NumberFormat currency = NumberFormat.getCurrencyInstance();
     private double fees;
     private double minAccBalance;
     
@@ -26,7 +37,16 @@ public class MonthlyFees implements AccountType {
         return minAccBalance;
     }
 
-    //public void fees ()
 
-}
+
+    public void monthlyFees (){
+      System.out.println ("Monthly fee: " + currency.format(fees));
+    }
+
+  public void type(){
+    
+  } 
+  */
+
+
 
