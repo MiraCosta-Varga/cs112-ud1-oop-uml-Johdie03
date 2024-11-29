@@ -83,10 +83,11 @@ public class Main {
                     case 3:
                         accType = "Regular";
                         break;
-                    
-                    default:
-                    AccType.typeOfAcc();
+
+                        
                 }
+                AccType.accType = accType;
+               System.out.println (AccType.typeOfAcc());
 
                
             /* 
