@@ -83,9 +83,13 @@ public class Main {
                     case 3:
                         accType = "Regular";
                         break;
-
+                    
+                    default:
+                    AccType.typeOfAcc();
                 }
-            
+
+               
+            /* 
 
             if ("Student".equalsIgnoreCase(accType)) {
                 StudentAcc studentAccType;
@@ -103,13 +107,15 @@ public class Main {
                 System.out.println("Please pick one option (1-3)");
             }
 
+            */
+
             //String name, String email, String password, String address, String birthday, int ssn,
             //double checkingsAmount
-            users[count] = new Checkings(name, email, password, address, birthday, ssn, checkingsAmount, savingsAmount);
+            users[count] = new Checkings(name, email, password, address, birthday, ssn, checkingsAmount, savingsAmount, accType);
             count++;
             //String name, String email, String password, String address, String birthday, int ssn,
             //double savingsAmount
-            users[count] = new Savings(name, email, password, address, birthday, ssn, checkingsAmount, savingsAmount);
+            users[count] = new Savings(name, email, password, address, birthday, ssn, checkingsAmount, savingsAmount, accType);
             count++;
 
         }

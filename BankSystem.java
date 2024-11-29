@@ -9,7 +9,8 @@ import java.util.Date;
 public abstract class BankSystem {
 
     protected static NumberFormat currency = NumberFormat.getCurrencyInstance();
-    
+    protected static String accType;
+
     // Instance Variables
     private String name;
     private String password;
@@ -17,6 +18,7 @@ public abstract class BankSystem {
     private String address;
     private String birthday;
     private int ssn;
+
     protected double checkingsAmount=0;
     protected double savingsAmount=0;
     protected double transferAmount;
@@ -41,7 +43,7 @@ public abstract class BankSystem {
         */
     
     /* Full Constructor */
-    public BankSystem(String name, String email, String password, String address, String birthday, int ssn, double checkingsAmount, double savingsAmount) {
+    public BankSystem(String name, String email, String password, String address, String birthday, int ssn, double checkingsAmount, double savingsAmount, String accType) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -50,6 +52,7 @@ public abstract class BankSystem {
         this.ssn = ssn;
         this.checkingsAmount = checkingsAmount;
         this.savingsAmount = savingsAmount;
+        BankSystem.accType = accType;
     }
 
     /* Copy Constructor */
@@ -58,7 +61,7 @@ public abstract class BankSystem {
             throw new IllegalArgumentException("Bad deep copy");
         } else {
               this.setAll(original.name, original.email, original.password, original.address, original.birthday,
-                    original.ssn, original.checkingsAmount, original.savingsAmount);
+                    original.ssn, original.checkingsAmount, original.savingsAmount, BankSystem.accType);
                     
         }
     }
@@ -107,7 +110,11 @@ public abstract class BankSystem {
         this.savingsAmount = savingsAmount;
     }
 
-    public void setAll(String name, String email, String password, String address, String birthday, int ssn, double checkingsAmount, double savingsAmount) {
+    public void setAccType(String accType) {
+        BankSystem.accType = accType;
+    }
+
+    public void setAll(String name, String email, String password, String address, String birthday, int ssn, double checkingsAmount, double savingsAmount, String accType) {
         this.setName(name);
         this.setEmail(email);
         this.setPassword(password);
@@ -116,6 +123,7 @@ public abstract class BankSystem {
         this.setSsn(ssn);
         this.setCheckingsAmount(checkingsAmount);
         this.setSavingsAmount(savingsAmount);
+        this.setAccType(accType);
 
     }
 
@@ -152,6 +160,10 @@ public abstract class BankSystem {
         return this.savingsAmount;
     }
 
+    public String getAccType() {
+        return BankSystem.accType;
+    }
+
     /* Other Methods */
     @Override
     public boolean equals(Object other) {
@@ -176,7 +188,8 @@ public abstract class BankSystem {
                 "\nAddress: " + this.address +
                 "\nSSN: " + this.ssn + 
                 "\nCheckings Amount: " + this.checkingsAmount + 
-                "\nSavings Amount: " + this.savingsAmount;
+                "\nSavings Amount: " + this.savingsAmount +
+                "\nAccount Type: " + BankSystem.accType;
 
     }
 

@@ -1,4 +1,4 @@
-class StudentAcc extends Main implements MonthlyFees{
+class StudentAcc implements MonthlyFees{
 
     private static final double MONTHLY_FEE = 0.99;
     private static final String ACC_TYPE = "Student";

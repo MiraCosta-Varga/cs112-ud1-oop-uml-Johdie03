@@ -7,8 +7,8 @@ public class Checkings extends BankSystem {
     //Constructors
     //Full Constructor
     public Checkings(String name, String email, String password, String address, String birthday, int ssn,
-            double checkingsAmount, double savingsAmount) {
-        super(name, email, password, address, birthday, ssn, checkingsAmount, savingsAmount);
+            double checkingsAmount, double savingsAmount, String accType) {
+        super(name, email, password, address, birthday, ssn, checkingsAmount, savingsAmount, accType);
         totalCheckingsAmount += checkingsAmount;
     }
 
@@ -32,7 +32,7 @@ public class Checkings extends BankSystem {
     //Other Methods
     @Override
     public String toString() {
-        return super.toString() + "Checkings Amount: " + currency.format(checkingsAmount);
+        return super.toString() + "Checkings Amount: " + currency.format(totalCheckingsAmount);
     }
 
     @Override

@@ -7,8 +7,8 @@ public class Savings extends BankSystem {
     //Constructor
     //Full Constructor
     public Savings(String name, String email, String password, String address, String birthday, int ssn,
-            double checkingsAmount, double savingsAmount) {
-        super(name, email, password, address, birthday, ssn, checkingsAmount, savingsAmount);
+            double checkingsAmount, double savingsAmount, String accType) {
+        super(name, email, password, address, birthday, ssn, checkingsAmount, savingsAmount, accType);
         totalSavingsAmount += savingsAmount;
     }
 

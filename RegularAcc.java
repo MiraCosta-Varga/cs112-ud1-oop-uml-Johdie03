@@ -1,4 +1,4 @@
-class RegularAcc extends Main implements MonthlyFees{
+class RegularAcc implements MonthlyFees{
     private static final double MONTHLY_FEE = 4.99;
      private static final String ACC_TYPE = "Regular";
 
