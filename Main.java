@@ -105,22 +105,25 @@ public class Main {
 
             //String name, String email, String password, String address, String birthday, int ssn,
             //double checkingsAmount
-            users[count] = new Checkings(name, email, password, address, birthday, ssn, checkingsAmount);
+            users[count] = new Checkings(name, email, password, address, birthday, ssn, checkingsAmount, savingsAmount);
             count++;
             //String name, String email, String password, String address, String birthday, int ssn,
             //double savingsAmount
-            users[count] = new Savings(name, email, password, address, birthday, ssn, savingsAmount);
+            users[count] = new Savings(name, email, password, address, birthday, ssn, checkingsAmount, savingsAmount);
             count++;
 
         }
     }
 
-        else if (choice == 2) {
-            System.out.println("INFO"); //get information about monthly fees
+        else if (choice == 2) { //Info
+            System.out.println("Monthly Fees Information"); //get information about monthly fees
+            System.out.println ("\nStudent Account Monthly Fees: $0.99");
+            System.out.println ("Business Account Monthly Fees: $7.99");
+            System.out.println ("Normal Checkings and Savings Acount Monthly Fees: $4.99");
 
         }
 
-        else if (choice == 3) {
+        else if (choice == 3) { //Exit
             System.out.println("Exiting...");
             System.exit(0);
         }

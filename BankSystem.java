@@ -41,13 +41,15 @@ public abstract class BankSystem {
         */
     
     /* Full Constructor */
-    public BankSystem(String name, String email, String password, String address, String birthday, int ssn) {
+    public BankSystem(String name, String email, String password, String address, String birthday, int ssn, double checkingsAmount, double savingsAmount) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.address = address;
         this.birthday = birthday;
         this.ssn = ssn;
+        this.checkingsAmount = checkingsAmount;
+        this.savingsAmount = savingsAmount;
     }
 
     /* Copy Constructor */
@@ -56,7 +58,7 @@ public abstract class BankSystem {
             throw new IllegalArgumentException("Bad deep copy");
         } else {
               this.setAll(original.name, original.email, original.password, original.address, original.birthday,
-                    original.ssn);
+                    original.ssn, original.checkingsAmount, original.savingsAmount);
                     
         }
     }
@@ -97,13 +99,23 @@ public abstract class BankSystem {
         this.ssn = ssn;
     }
 
-    public void setAll(String name, String email, String password, String address, String birthday, int ssn) {
+    public void setCheckingsAmount(double checkingsAmount) {
+        this.checkingsAmount = checkingsAmount;
+    }
+
+    public void setSavingsAmount(double savingsAmount) {
+        this.savingsAmount = savingsAmount;
+    }
+
+    public void setAll(String name, String email, String password, String address, String birthday, int ssn, double checkingsAmount, double savingsAmount) {
         this.setName(name);
         this.setEmail(email);
         this.setPassword(password);
         this.setAddress(address);
         this.setBirthday(birthday);
         this.setSsn(ssn);
+        this.setCheckingsAmount(checkingsAmount);
+        this.setSavingsAmount(savingsAmount);
 
     }
 
@@ -132,6 +144,14 @@ public abstract class BankSystem {
         return this.ssn;
     }
 
+    public double getCheckingsAmount() {
+        return this.checkingsAmount;
+    }
+
+    public double getSavingsAmount() {
+        return this.savingsAmount;
+    }
+
     /* Other Methods */
     @Override
     public boolean equals(Object other) {
@@ -154,7 +174,9 @@ public abstract class BankSystem {
                 "\nEmail: " + this.email +
                 "\nBirthday: " + this.birthday +
                 "\nAddress: " + this.address +
-                "\nSSN: " + this.ssn;
+                "\nSSN: " + this.ssn + 
+                "\nCheckings Amount: " + this.checkingsAmount + 
+                "\nSavings Amount: " + this.savingsAmount;
 
     }
 

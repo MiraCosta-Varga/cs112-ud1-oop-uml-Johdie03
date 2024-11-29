@@ -7,9 +7,9 @@ public class Savings extends BankSystem {
     //Constructor
     //Full Constructor
     public Savings(String name, String email, String password, String address, String birthday, int ssn,
-            double savingsAmount) {
-        super(name, email, password, address, birthday, ssn);
-        totalSavingsAmount = savingsAmount;
+            double checkingsAmount, double savingsAmount) {
+        super(name, email, password, address, birthday, ssn, checkingsAmount, savingsAmount);
+        totalSavingsAmount += savingsAmount;
     }
 
     //Default Constructor
@@ -23,14 +23,15 @@ public class Savings extends BankSystem {
 
 
     //Setters
-    public void setSavingsAmount(double savingsAmount) {
-        this.savingsAmount = savingsAmount;
+    public void setTotalSavings(double totalSavingsAmount) {
+        this.totalSavingsAmount = totalSavingsAmount;
     }
 
     //Getters
-    public double getSavingsAmount() {
-        return this.savingsAmount;
+    public double getTotalSavingsAmount(){
+        return this.totalSavingsAmount;
     }
+
 
     //Other Methods
     @Override
