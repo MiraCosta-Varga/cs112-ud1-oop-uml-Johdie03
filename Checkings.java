@@ -1,7 +1,7 @@
 
 public class Checkings extends BankSystem {
     //Fields
-    //private double checkingsAmount;
+
     protected double checkingsAmount = 0;
     protected double totalCheckingsAmount = 0;
 

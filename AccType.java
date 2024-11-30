@@ -1,7 +1,7 @@
 public class AccType  {
     
-    public static String accType;
-    protected String accountType;
+    protected static String accType;
+
 
     public AccType(String name, String email, String password, String address, String birthday, int ssn, String accType, double checkingsAmount, double savingsAmount) {
         super();

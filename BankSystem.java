@@ -21,10 +21,8 @@ public abstract class BankSystem {
 
     protected double checkingsAmount=0;
     protected double savingsAmount=0;
-    protected double transferAmount;
 
     //Constance Variables
-    /* 
     public static final String DEFAULT_NAME = "Michael Smith";
     public static final String DEFAULT_PASSWORD = "Smith123";
     public static final String DEFAULT_EMAIL = "michaelS@gmail.com";
@@ -35,7 +33,7 @@ public abstract class BankSystem {
     
     public static final double DEFAULT_CHECKINGSAMOUNT = 50;
     public static final double DEFAULT_SAVINGS_AMOUINT = 50;
-    */
+    
     
     /***  Constructor Methods ***/
     /* Default Constructor */
@@ -195,11 +193,6 @@ public abstract class BankSystem {
 
     }
 
-    /* 
-    public void checkingsDeposit(double depositAmount) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'checkingsDeposit'");
-    }
 
     //calculate age method
     /*public static int age(Date birthday) {
