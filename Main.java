@@ -9,7 +9,6 @@
  */
 import java.util.Scanner;
 import java.text.NumberFormat;
-//HELLO
 public class Main {
     static BankSystem[] users = new BankSystem[50];
     static Scanner keyboard = new Scanner(System.in);
@@ -113,11 +112,10 @@ public class Main {
 
             //String name, String email, String password, String address, String birthday, int ssn,
             //double checkingsAmount
-            users[count++] = new Checkings(name, email, password, address, birthday, ssn, checkingsAmount, savingsAmount, accType);
+            users[count++] = new Checkings(name, email, password, address, birthday, ssn, accType, checkingsAmount);
             //String name, String email, String password, String address, String birthday, int ssn,
             //double savingsAmount
-            users[count++] = new Savings(name, email, password, address, birthday, ssn, checkingsAmount, savingsAmount, accType);
-                
+            users[count++] = new Savings(name, email, password, address, birthday, ssn, accType, savingsAmount);
             // Checkings checkingsUser = (Checkings) users[count-2];
             // Savings savingsUser = (Savings) users[count-1];
 
@@ -160,18 +158,21 @@ public class Main {
                 System.out.print("Would you like to deposit money to your Checkings or Savings?: ");
                 option = keyboard.nextLine().toUpperCase();
 
-                totalSavings = ((BankSystem) users[count - 1]).getSavingsAmount();
-                totalCheckings = ((BankSystem) users[count - 2]).getCheckingsAmount();
+
+                //get total?
+                //totalSavings = ((BankSystem) users[count - 1]).getSavingsAmount();
+                //totalCheckings = ((BankSystem) users[count - 2]).getCheckingsAmount();
                 switch (option) {
                     //(Checkings) users[count-2];
                     //(Savings) users[count-1];
 
                     case "SAVINGS":
+                    
                         System.out.println("\nDepositing to Savings...");
                         System.out.print("Please enter amount you are depositing: $");
                         depositAmount = keyboard.nextDouble();
-                        keyboard.nextLine();
-                        savingsAmount = totalSavings += depositAmount;
+                        deposits(depositAmount, option);
+                        //savingsAmount = totalSavings += depositAmount;
                         //totalCheckings = ((Checkings) users[count - 2]).getTotalCheckingsAmount();
                         //totalSavings = ((Savings) users[count - 1]).getTotalSavingsAmount();
                         //savingsAmount += totalSavings;
@@ -183,90 +184,111 @@ public class Main {
                         System.out.println("\nDepositing to Checkings...");
                         System.out.print("Please enter amount you are depositing: $");
                         depositAmount = keyboard.nextDouble();
-                        keyboard.nextLine();
-                        checkingsAmount = totalCheckings += depositAmount;
-                        //totalSavings = ((Savings) users[count - 1]).getTotalSavingsAmount();
-                        //totalCheckings = ((Checkings) users[count - 2]).getTotalCheckingsAmount();
-                        //savingsAmount += totalSavings;
-                        //totalCheckings += depositAmount;
+                        deposits(depositAmount, option);
+                                                /* 
+                                                System.out.print("Please enter amount you are depositing: $");
+                                                depositAmount = keyboard.nextDouble();
+                                                keyboard.nextLine();
+                                                checkingsDeposit(depositAmount);
+                                                */
+                                                //checkingsAmount = totalCheckings += depositAmount;
+                                                //totalSavings = ((Savings) users[count - 1]).getTotalSavingsAmount();
+                                                //totalCheckings = ((Checkings) users[count - 2]).getTotalCheckingsAmount();
+                                                //savingsAmount += totalSavings;
+                                                //totalCheckings += depositAmount;
+                        
+                                                //checkingsAmount += depositAmount;
+                                                break;
+                                        }
+                                        //((Savings) users[count - 1]).getTotalSavingsAmount();
+                                        //((Checkings) users[count - 2]).getTotalCheckingsAmount();
+                                         System.out.println("Current amount in checkings after deposit " + currency.format(((Checkings) users[count - 2]).getTotalCheckingsAmount()));
+                                         System.out.println("Current amount in savings after deposit " + currency.format(((Savings) users[count - 1]).getTotalSavingsAmount()));
+                                    } else if (choice == 2) { // withdraw
+                                        System.out.print("Would you like to withdraw money from your Checkings or Savings?: ");
+                                        option = keyboard.nextLine().toUpperCase();
+                        
+                                        switch (option) {
+                                             //(Checkings) users[count-2];
+                                            //(Savings) users[count-1];
+                                            case "SAVINGS":
+                                                System.out.println("\nWithdrawing from Savings...");
+                                                System.out.print("Please enter amount you are withdrawing: $");
+                                                withdrawAmount = keyboard.nextDouble();
+                                                //savingsAmount -= withdrawAmount;
+                                                totalSavings = ((Savings) users[count - 1]).getTotalSavingsAmount();
+                                                savingsAmount = totalSavings += withdrawAmount;
+                        
+                                                break;
+                        
+                                            case "CHECKINGS":
+                                                System.out.println("\nWithdrawing from Checkings...");
+                                                System.out.print("Please enter amount you are withdrawing: $");
+                                                withdrawAmount = keyboard.nextDouble();
+                                                //checkingsAmount -= withdrawAmount;
+                                                totalCheckings = ((Checkings) users[count - 2]).getTotalCheckingsAmount();
+                                                totalCheckings = checkingsAmount -= withdrawAmount;
+                                                break;
+                                        }
+                                        System.out.println("Current amount in checkings after withdraw " + currency.format(totalCheckings));
+                                        System.out.println("Current amount in savings after withdraw " + currency.format(totalSavings));
+                        
+                                    } else if (choice == 3) { //transfer
+                        
+                                        System.out.println("\n1) Transfer from Checkings to Savings");
+                                        System.out.println("2) Transfer from Savings to Checkings");
+                                        System.out.print("Please choose from the following options above: ");
+                                        choice2 = keyboard.nextInt();
+                        
+                                        moneyTransfer(transferAmount, choice2);
+                        
+                                    } else if (choice == 4) { //View Acc Detail
+                                        System.out.println("\nAccount Details: ");
+                                        System.out.println("\n Current balance in Checkings: " + currency.format(totalCheckings));
+                                        System.out.println(" Current balance in Savings: " + currency.format(totalSavings));
+                                        System.out.printf(" Monthly Fees: " + currency.format(accTypeFees(accType)));
+                        
+                                    } else {
+                                        System.out.println("Exiting out of Account options...");
+                                        break;
+                                    }
+                        
+                                } while (true);
+                                System.out.println();
+                            }
+                            //determine fees from type of account
+                          public static double accTypeFees(String accType){
+                            /*
+                            double monthlyFees;
+                            StudentAcc studentAccount = new StudentAcc();
+                            BusinessAcc businessAccount = new BusinessAcc();
+                            */
+                            if (accType.equalsIgnoreCase("Student")){
+                                return 0.99;
+                            } else if (accType.equalsIgnoreCase("Business")){
+                                return 7.99;
+                            } else {
+                              return 4.99;
+                            }
+                            
+                          }
+                          
 
-                        //checkingsAmount += depositAmount;
-                        break;
-                }
-               // ((Savings) users[count - 1]).getTotalSavingsAmount();
-                //((Checkings) users[count - 2]).getTotalCheckingsAmount();
-                System.out.println("Current amount in checkings after deposit " + currency.format(checkingsAmount));
-                System.out.println("Current amount in savings after deposit " + currency.format(savingsAmount));
-            } else if (choice == 2) { // withdraw
-                System.out.print("Would you like to withdraw money from your Checkings or Savings?: ");
-                option = keyboard.nextLine().toUpperCase();
+                          //deposits method
+                            public static void deposits(double depositAmount, String option){
+                                if (option.equalsIgnoreCase("CHECKINGS")) {
+                                    ((Checkings) users[count - 2]).checkingsDeposit(depositAmount);
+                                }
+                                else if (option.equalsIgnoreCase("SAVINGS")) {
+                                    ((Savings) users[count - 1]).savingsDeposit(depositAmount);
+                                }
 
-                switch (option) {
-                     //(Checkings) users[count-2];
-                    //(Savings) users[count-1];
-                    case "SAVINGS":
-                        System.out.println("\nWithdrawing from Savings...");
-                        System.out.print("Please enter amount you are withdrawing: $");
-                        withdrawAmount = keyboard.nextDouble();
-                        //savingsAmount -= withdrawAmount;
-                        totalSavings = ((Savings) users[count - 1]).getTotalSavingsAmount();
-                        totalSavings = savingsAmount += withdrawAmount;
 
-                        break;
+                            
+                          }
+                          
 
-                    case "CHECKINGS":
-                        System.out.println("\nWithdrawing from Checkings...");
-                        System.out.print("Please enter amount you are withdrawing: $");
-                        withdrawAmount = keyboard.nextDouble();
-                        //checkingsAmount -= withdrawAmount;
-                        totalCheckings = ((Checkings) users[count - 2]).getTotalCheckingsAmount();
-                        totalCheckings = checkingsAmount -= withdrawAmount;
-                        break;
-                }
-                System.out.println("Current amount in checkings after withdraw " + currency.format(totalCheckings));
-                System.out.println("Current amount in savings after withdraw " + currency.format(totalSavings));
-
-            } else if (choice == 3) { //transfer
-
-                System.out.println("\n1) Transfer from Checkings to Savings");
-                System.out.println("2) Transfer from Savings to Checkings");
-                System.out.print("Please choose from the following options above: ");
-                choice2 = keyboard.nextInt();
-
-                moneyTransfer(transferAmount, choice2);
-
-            } else if (choice == 4) { //View Acc Detail
-                System.out.println("\nAccount Details: ");
-                System.out.println("\n Current balance in Checkings: " + currency.format(totalCheckings));
-                System.out.println(" Current balance in Savings: " + currency.format(totalSavings));
-                System.out.printf(" Monthly Fees: " + currency.format(accTypeFees(accType)));
-
-            } else {
-                System.out.println("Exiting out of Account options...");
-                break;
-            }
-
-        } while (true);
-        System.out.println();
-    }
-    //determine fees from type of account
-  public static double accTypeFees(String accType){
-    /*
-    double monthlyFees;
-    StudentAcc studentAccount = new StudentAcc();
-    BusinessAcc businessAccount = new BusinessAcc();
-    */
-    if (accType.equalsIgnoreCase("Student")){
-        return 0.99;
-    } else if (accType.equalsIgnoreCase("Business")){
-        return 7.99;
-    } else {
-      return 4.99;
-    }
-    
-  }
-    //Savings savingsAcc = new Savings();
-    //Transfer Method
+                          //Transfer Method
     public static void moneyTransfer(double transferAmount, int choice2) {
         
        
@@ -307,6 +329,31 @@ public class Main {
 
         }
     }
+                
+
+                          /* 
+      public static double checkingsDeposit(double depositAmount) {
+      double totalCheckingsAmount = ((Checkings) users[count - 2]).getTotalCheckingsAmount();
+    //   System.out.print("Please enter amount you are depositing: $");
+    //    depositAmount = keyboard.nextDouble();
+    //   keyboard.nextLine();
+      return totalCheckingsAmount += depositAmount;
+      //System.out.println("Current amount in checkings after deposit " + currency.format(totalCheckings));
+      
+
+  }
+
+public static double savingsDeposit(double depositAmount) {
+      double totalSavingsAmount = ((Savings) users[count - 1]).getTotalSavingsAmount();
+    //    System.out.print("Please enter amount you are depositing: $");
+    //    depositAmount = keyboard.nextDouble();
+    //    keyboard.nextLine();
+     return totalSavingsAmount += depositAmount;
+      //System.out.println("Current amount in savings after deposit " + currency.format(totalSavings));
+  }
+*/
+    //Savings savingsAcc = new Savings();
+    
 
             /*  
             if (transferAmount >= checkingsBalance) {

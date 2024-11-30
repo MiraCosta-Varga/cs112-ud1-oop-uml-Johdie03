@@ -2,14 +2,16 @@ public class Savings extends BankSystem {
     
     //Fields
     //private double savingsAmount;
-    private double totalSavingsAmount = 0;
+    protected double savingsAmount = 0;
+    protected double totalSavingsAmount = 0;
 
     //Constructor
     //Full Constructor
-    public Savings(String name, String email, String password, String address, String birthday, int ssn,
-            double checkingsAmount, double savingsAmount, String accType) {
-        super(name, email, password, address, birthday, ssn, checkingsAmount, savingsAmount, accType);
-        savingsAmount += totalSavingsAmount;
+    public Savings(String name, String email, String password, String address, String birthday, int ssn, String accType, double savingsAmount) {
+        super(name, email, password, address, birthday, ssn, accType);
+        totalSavingsAmount += savingsAmount;
+        savingsAmount = this.savingsAmount;
+       
     }
 
     //Default Constructor
@@ -23,11 +25,19 @@ public class Savings extends BankSystem {
 
 
     //Setters
+    public void setSavingsAmount(double savingsAmount) {
+        this.savingsAmount = savingsAmount;
+    }
+
     public void setTotalSavings(double totalSavingsAmount) {
         this.totalSavingsAmount = totalSavingsAmount;
     }
 
     //Getters
+    public double getSavingsAmount(){
+         return this.savingsAmount;
+    }
+
     public double getTotalSavingsAmount(){
         return this.totalSavingsAmount;
     }
@@ -36,7 +46,7 @@ public class Savings extends BankSystem {
     //Other Methods
     @Override
     public String toString() {
-        return super.toString() + "Savings Total Amount: " + currency.format(totalSavingsAmount);
+        return super.toString() + "Savings Total Amount: " + currency.format(savingsAmount) + "\nSavings Amount" + currency.format(totalSavingsAmount);
     }
 
     @Override
@@ -48,6 +58,14 @@ public class Savings extends BankSystem {
         BankSystem otherBank = (BankSystem) other;
         return super.equals(other) &&
                 this.savingsAmount == otherBank.savingsAmount;
+    }
+
+    public void savingsWidthraw(double amount) {
+        totalSavingsAmount -= amount;
+    }
+
+    public void savingsDeposit(double amount) {
+        totalSavingsAmount += amount;
     }
     
     //Method for Money transfer from Checkings to Savings
@@ -84,8 +102,9 @@ public class Savings extends BankSystem {
         }
     
     }
+}
 
-     
+     /* 
     public void savingsWidthraw(double amount) {
         double withdrawAmount = amount;
         totalSavingsAmount = savingsAmount -= withdrawAmount;
@@ -96,7 +115,8 @@ public class Savings extends BankSystem {
 
         return totalSavingsAmount;
     }
+        */
         
         
         
-}
+
