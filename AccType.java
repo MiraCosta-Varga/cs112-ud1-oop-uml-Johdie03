@@ -1,10 +1,10 @@
-public class AccType extends BankSystem {
+public class AccType  {
     
+    public static String accType;
     protected String accountType;
 
-    public AccType(String name, String email, String password, String address, String birthday, int ssn,
-            double checkingsAmount, double savingsAmount, String accType) {
-        super(name, email, password, address, birthday, ssn, checkingsAmount, savingsAmount, accType);
+    public AccType(String name, String email, String password, String address, String birthday, int ssn, String accType, double checkingsAmount, double savingsAmount) {
+        super();
     }
 
     public static String typeOfAcc() {
