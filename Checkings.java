@@ -9,7 +9,7 @@ public class Checkings extends BankSystem {
     public Checkings(String name, String email, String password, String address, String birthday, int ssn,
             double checkingsAmount, double savingsAmount, String accType) {
         super(name, email, password, address, birthday, ssn, checkingsAmount, savingsAmount, accType);
-        totalCheckingsAmount += checkingsAmount;
+         checkingsAmount += totalCheckingsAmount;
     }
 
     // Default Constructor
@@ -76,13 +76,13 @@ public class Checkings extends BankSystem {
                     "\nCurrent Balance in Checkings: " + totalCheckingsAmount +
                     "\nCurrent Balanace in Savings: " + savingsAmount);
             */
-             if (transferAmount > this.getCheckingsAmount() ) {
+             if (transferAmount > this.getTotalCheckingsAmount() ) {
                 System.out.println ("You do not have enough money in your Checkings") ;
             
             
-            } else {
+            } else { //transfer from checkings to savings
                 savingsAmount += transferAmount;
-                totalCheckingsAmount -= transferAmount;
+                checkingsAmount -= transferAmount;
                 System.out.println("Transfer Successful!\n Amount Transferred: $" + transferAmount +
                         "\nCurrent Balance in Checkings: " + checkingsAmount +
                         "\nCurrent Balanace in Savings: " + savingsAmount);
@@ -92,18 +92,26 @@ public class Checkings extends BankSystem {
                      
         
 
+            public double checkingsDeposit(double depositAmount) {
+                    totalCheckingsAmount += depositAmount;
+                    return totalCheckingsAmount;
+                }
 
+            }
+
+/*
         public void checkingsWidthraw(double amount) {
                     double withdrawAmount = amount;
                     checkingsAmount -= withdrawAmount;
                 }
             
-                public void checkingsDeposit(double amount) {
-                    double depositAmount = amount;
-                    checkingsAmount += depositAmount;
+                public void checkingsDeposit(double depositAmount) {
+                    totalCheckingsAmount = checkingsAmount += depositAmount;
                 }
+
+
                     
-            /* 
+             
                 public static void checkingsTransfer(double transferAmount, int choice2) {
         
                     if (transferAmount > totalCheckingsAmount) {
@@ -118,7 +126,7 @@ public class Checkings extends BankSystem {
     }
     */
 
-}
+
 
 
 

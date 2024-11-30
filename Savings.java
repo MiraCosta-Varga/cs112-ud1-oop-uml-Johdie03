@@ -9,7 +9,7 @@ public class Savings extends BankSystem {
     public Savings(String name, String email, String password, String address, String birthday, int ssn,
             double checkingsAmount, double savingsAmount, String accType) {
         super(name, email, password, address, birthday, ssn, checkingsAmount, savingsAmount, accType);
-        totalSavingsAmount += savingsAmount;
+        savingsAmount += totalSavingsAmount;
     }
 
     //Default Constructor
@@ -36,7 +36,7 @@ public class Savings extends BankSystem {
     //Other Methods
     @Override
     public String toString() {
-        return super.toString() + "Savings Total Amount: " + currency.format(savingsAmount);
+        return super.toString() + "Savings Total Amount: " + currency.format(totalSavingsAmount);
     }
 
     @Override
@@ -72,17 +72,31 @@ public class Savings extends BankSystem {
                 "\nCurrent Balanace in Savings: " + savingsAmount);
         
                 */
-         if (transferAmount > this.getSavingsAmount() ) {
+         if (transferAmount > this.getTotalSavingsAmount() ) {
             System.out.println ("You do not have enough money in your Checkings") ;
         
         } else {
             checkingsAmount += transferAmount;
-            totalSavingsAmount -= transferAmount;
+            savingsAmount -= transferAmount;
             System.out.println("Transfer Successful!\n Amount Transferred: $" + transferAmount +
                     "\nCurrent Balance in Checkings: " + checkingsAmount +
                     "\nCurrent Balanace in Savings: " + savingsAmount);
         }
     
     }
+
+     
+    public void savingsWidthraw(double amount) {
+        double withdrawAmount = amount;
+        totalSavingsAmount = savingsAmount -= withdrawAmount;
+    }
+
+    public double savingsDeposit(double depositAmount) {
+        totalSavingsAmount += depositAmount;
+
+        return totalSavingsAmount;
+    }
+        
+        
         
 }

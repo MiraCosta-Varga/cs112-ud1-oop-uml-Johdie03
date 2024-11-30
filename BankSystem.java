@@ -193,6 +193,12 @@ public abstract class BankSystem {
 
     }
 
+    /* 
+    public void checkingsDeposit(double depositAmount) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'checkingsDeposit'");
+    }
+
     //calculate age method
     /*public static int age(Date birthday) {
         LocalDate currentDate = LocalDate.now();
@@ -201,7 +207,7 @@ public abstract class BankSystem {
         */
 
 
-
+/* 
     //OTHER METHODS
     public void checkingsWidthraw(double amount) {
         double withdrawAmount = amount;
@@ -222,6 +228,7 @@ public abstract class BankSystem {
         double depositAmount = amount;
         savingsAmount += depositAmount;
     }
+        */
 
 
 
