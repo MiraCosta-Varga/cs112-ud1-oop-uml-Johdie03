@@ -22,7 +22,7 @@ public class Main {
         double checkingsAmount = 0, savingsAmount = 0;
         double depositAmount = 0, withdrawAmount = 0, transferAmount = 0;
         int ssn;
-        int choice = 0, choice2 = 0;
+        int choice, choice2, choice3;
         String option;
 
         // TESTER  
@@ -39,10 +39,10 @@ public class Main {
             System.out.println(" 2) Get information about account fees");
             System.out.println(" 3) Exit");
             System.out.print(" >>>");
-            choice = keyboard.nextInt();
+            choice3 = keyboard.nextInt();
             keyboard.nextLine();
 
-            if (choice == 1) { //create an account
+            if (choice3 == 1) { //create an account
 
                 System.out.println("Creating an account... Please fill out the following.");
 
@@ -62,7 +62,7 @@ public class Main {
                 checkingsAmount = keyboard.nextDouble();
                 System.out.print("Starting Savings Amount: $");
                 savingsAmount = keyboard.nextDouble();
-                System.out.print("\nWould you like to open a: "
+                System.out.print("\nWhat type of account would you like to open? "
                         + "\n(1) student bank account "
                         + "\n(2) business bank account "
                         + "\n(3) Regular bank account"
@@ -101,7 +101,7 @@ public class Main {
                 }
             }
 
-            else if (choice == 2) { //INFO
+            else if (choice3 == 2) { //INFO
                 System.out.println("Monthly Fees Information"); //get information about monthly fees
                 System.out.println("\nStudent Account Monthly Fees: $0.99");
                 System.out.println("Business Account Monthly Fees: $7.99");
@@ -109,7 +109,7 @@ public class Main {
 
             }
 
-            else if (choice == 3) { //EXIT
+            else if (choice3 == 3) { //EXIT
                 System.out.println("Exiting...");
                 System.exit(0);
             }
@@ -117,7 +117,7 @@ public class Main {
             else {
                 System.out.println("ERROR: Please enter 1-3 from the options stated");
             }
-        } while (choice != 1);
+        } while (choice3 != 1);
 
         do {
             System.out.println("\nWhat would you like to do with your account? ");
