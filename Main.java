@@ -18,11 +18,11 @@ public class Main {
 
     public static void main(String[] args) {
         //TESTER//
-        System.out.println("RUNNING TESTER");
-        BankSystemTester.main(null);
+        // System.out.println("RUNNING TESTER");
+        // BankSystemTester.main(null);
 
 
-/* 
+ 
         // Declaring Variables
         String name, password, email, address, birthday, accType = null;
         double checkingsAmount = 0, savingsAmount = 0;
@@ -245,7 +245,7 @@ public class Main {
 
         } while (true);
 
-        */
+        
     }
 
     //determine fees from type of account

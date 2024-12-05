@@ -29,8 +29,6 @@ public class BankSystemTester {
         BankSystemTester.testSetSavingsAmount();
         
         BankSystemTester.testSetAll();
-        */
-        
         
         //getters 
         BankSystemTester.testGetName();
@@ -49,21 +47,9 @@ public class BankSystemTester {
 
         BankSystemTester.testGetSavingsAmount();
 
-        /* 
-        BankSystemTester.test();
-        
-        BankSystemTester.testSetAll();
-        
-        BankSystemTester.testSetAll();
-        
-        BankSystemTester.testSetAll();
-        
-        BankSystemTester.testSetAll();
-        
+        BankSystemTester.testFullConstructor();
+
         */
-        //constructor
-        
-        
     }
 
 
@@ -291,6 +277,30 @@ public class BankSystemTester {
         System.out.println("Savings Amount should have changed to \" 15.15 \" : " + test.getTotalSavingsAmount());
     }
     
+    //testFullConstructor
+    public static void testFullConstructor() {
+        Checkings test1 = new Checkings();
+        Savings test2 = new Savings();
+
+
+        System.out.println("\nTESTING Full Constructor METHOD for CHECKINGS: \n");
+        test1 = new Checkings("Name", "Email", "Password", "Address", "Birthday", 2468, "Account Type", 10.10);
+/*String name, String email, String password, String address, String birthday, int ssn,
+    String accType */
+    //Valid Data
+    System.out.println("Full constructor should build new Checkings : " + test1);
+
+    //test1 = new Checkings("Name", "Email", "Password", "Address", "Birthday", "SSN", "ACCTYPE", 10.0); //Ssn should not be a String
+    //Error Message
+            
+    System.out.println("\nTESTING Full Constructor METHOD for Savings: \n");
+    test2 = new Savings("Name", "Email", "Password", "Address", "Birthday", 2468, "Account Type", 12.10);
+    System.out.println("Full constructor should build new Savings : " + test2);
+    //test2 = new Checkings("Name", "Email", "Password", "Address", "Birthday", "SSN", "ACCTYPE", 12.0); //Ssn should not be a String
+    //Error Message
+
+    }
+
 
 
 

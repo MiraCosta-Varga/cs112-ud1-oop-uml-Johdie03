@@ -12,6 +12,7 @@ public class Checkings extends BankSystem {
     //Full Constructor
     public Checkings(String name, String email, String password, String address, String birthday, int ssn,
             String accType, double checkingsAmount) {
+                
         super(name, email, password, address, birthday, ssn, accType);
         totalCheckingsAmount += checkingsAmount;
         checkingsAmount = this.checkingsAmount;
@@ -23,7 +24,8 @@ public class Checkings extends BankSystem {
                 DEFAULT_CHECKINGSAMOUNT);
     }
                 
-
+    //Copy Constructor
+    
     //Setters
     public void setCheckingsAmount(double checkingsAmount) {
         this.checkingsAmount = checkingsAmount;
