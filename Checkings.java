@@ -15,11 +15,11 @@ public class Checkings extends BankSystem {
     }
 
     // Default Constructor
-    /*public Checkings() {
-        this(DEFAULT_NAME, DEFAULT_EMAIL, DEFAULT_PASSWORD, DEFAULT_ADDRESS, DEFAULT_BIRTHDAY, DEFAULT_SSN,
+    public Checkings() {
+        this(DEFAULT_NAME, DEFAULT_EMAIL, DEFAULT_PASSWORD, DEFAULT_ADDRESS, DEFAULT_BIRTHDAY, DEFAULT_SSN, DEFAULT_ACCTYPE,
                 DEFAULT_CHECKINGSAMOUNT);
     }
-                */
+                
 
     //Setters
     public void setCheckingsAmount(double checkingsAmount) {
@@ -42,7 +42,7 @@ public class Checkings extends BankSystem {
     //Other Methods
     @Override
     public String toString() {
-        return super.toString() + "Checkings Amount: " + currency.format(checkingsAmount) + "Total Checkings Amount"
+        return super.toString() + "\nCheckings Amount: " + currency.format(checkingsAmount) + "\nTotal Checkings Amount"
                 + currency.format(totalCheckingsAmount);
     }
 

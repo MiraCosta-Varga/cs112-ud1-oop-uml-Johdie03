@@ -17,11 +17,11 @@ public class Savings extends BankSystem {
 
     //Default Constructor
     /* Default Constructor */
-    /* 
+    
     public Savings() {
-        this(DEFAULT_NAME, DEFAULT_EMAIL, DEFAULT_PASSWORD, DEFAULT_ADDRESS, DEFAULT_BIRTHDAY, DEFAULT_SSN, DEFAULT_SAVINGS_AMOUINT);
+        this(DEFAULT_NAME, DEFAULT_EMAIL, DEFAULT_PASSWORD, DEFAULT_ADDRESS, DEFAULT_BIRTHDAY, DEFAULT_SSN, DEFAULT_ACCTYPE, DEFAULT_SAVINGS_AMOUNT);
     }
-        */
+        
 
     //Setters
     public void setSavingsAmount(double savingsAmount) {
@@ -44,7 +44,7 @@ public class Savings extends BankSystem {
     //Other Methods
     @Override
     public String toString() {
-        return super.toString() + "Savings Total Amount: " + currency.format(savingsAmount) + "\nSavings Amount"
+        return super.toString() + "\nSavings Total Amount: " + currency.format(savingsAmount) + "\nSavings Amount"
                 + currency.format(totalSavingsAmount);
     }
 

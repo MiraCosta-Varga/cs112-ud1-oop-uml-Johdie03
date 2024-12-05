@@ -3,8 +3,10 @@
  * abstract class to allow inheritance for different account types
  */
 import java.text.NumberFormat;
+/* 
 import java.time.LocalDate;
 import java.util.Date;
+*/
 
 public abstract class BankSystem {
 
@@ -19,32 +21,32 @@ public abstract class BankSystem {
     private String birthday;
     private int ssn;
 
-    protected double checkingsAmount=0;
-    protected double savingsAmount=0;
+    protected double checkingsAmount = 0;
+    protected double savingsAmount = 0;
 
     //Constance Variables
     public static final String DEFAULT_NAME = "Michael Smith";
-    public static final String DEFAULT_PASSWORD = "Smith123";
+    public static final String DEFAULT_PASSWORD = "muffin123";
     public static final String DEFAULT_EMAIL = "michaelS@gmail.com";
     public static final String DEFAULT_ADDRESS = "123 Street City, CA 92000, US";
-    public static final String DEFAULT_BIRTHDAY_STRING = "01/01/2000";
+    public static final String DEFAULT_BIRTHDAY = "01/01/2000";
     //public static final Date DEFAULT_BIRTHDAY = 0;
-    public static final int DEFAULT_SSN = 123456789;
-    
+    public static final int DEFAULT_SSN = 1234;
+    public static final String DEFAULT_ACCTYPE = "Regular";
+
     public static final double DEFAULT_CHECKINGSAMOUNT = 50;
-    public static final double DEFAULT_SAVINGS_AMOUINT = 50;
-    
-    
+    public static final double DEFAULT_SAVINGS_AMOUNT = 50;
+
     /***  Constructor Methods ***/
     /* Default Constructor */
-    /*public BankSystem() {
-        this(DEFAULT_NAME, DEFAULT_EMAIL, DEFAULT_PASSWORD, DEFAULT_ADDRESS, DEFAULT_BIRTHDAY, DEFAULT_SSN);
+    public BankSystem() {
+        this(DEFAULT_NAME, DEFAULT_EMAIL, DEFAULT_PASSWORD, DEFAULT_ADDRESS, DEFAULT_BIRTHDAY, DEFAULT_SSN,
+                DEFAULT_ACCTYPE);
     }
-        */
 
-    
     /* Full Constructor */
-    public BankSystem(String name, String email, String password, String address, String birthday, int ssn, String accType) {
+    public BankSystem(String name, String email, String password, String address, String birthday, int ssn,
+            String accType) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -54,33 +56,31 @@ public abstract class BankSystem {
         BankSystem.accType = accType;
     }
 
-    
     /* Copy Constructor */
     public BankSystem(BankSystem original) {
         if (original == null) {
             throw new IllegalArgumentException("Bad deep copy");
         } else {
-              this.setAll(original.name, original.email, original.password, original.address, original.birthday,
+            this.setAll(original.name, original.email, original.password, original.address, original.birthday,
                     original.ssn, original.checkingsAmount, original.savingsAmount, BankSystem.accType);
-                    
+
         }
     }
 
     /* setters */
-     /*
-     public String setName(String name) {
+    /*
+    public String setName(String name) {
     
     if (name == null) {
-         throw new IllegalArgumentException("ERROR- Please enter your name: ");
-         }
-        return this.name = name;
-     }
-     */
-    
-    public void setName(String name) {
-         this.name = name;
+        throw new IllegalArgumentException("ERROR- Please enter your name: ");
+        }
+       return this.name = name;
     }
-    
+    */
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public void setEmail(String email) {
         this.email = email;
@@ -94,7 +94,7 @@ public abstract class BankSystem {
         this.address = address;
     }
 
-    public void setBirthday(String birthday)  {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
@@ -102,27 +102,32 @@ public abstract class BankSystem {
         this.ssn = ssn;
     }
 
+    /* 
+    
     public void setCheckingsAmount(double checkingsAmount) {
         this.checkingsAmount = checkingsAmount;
     }
-
+    
     public void setSavingsAmount(double savingsAmount) {
         this.savingsAmount = savingsAmount;
     }
+    
+    */
 
     public void setAccType(String accType) {
         BankSystem.accType = accType;
     }
 
-    public void setAll(String name, String email, String password, String address, String birthday, int ssn, double checkingsAmount, double savingsAmount, String accType) {
+    public void setAll(String name, String email, String password, String address, String birthday, int ssn,
+            double checkingsAmount, double savingsAmount, String accType) {
         this.setName(name);
         this.setEmail(email);
         this.setPassword(password);
         this.setAddress(address);
         this.setBirthday(birthday);
         this.setSsn(ssn);
-        this.setCheckingsAmount(checkingsAmount);
-        this.setSavingsAmount(savingsAmount);
+        // this.setCheckingsAmount(checkingsAmount);
+        // this.setSavingsAmount(savingsAmount);
         this.setAccType(accType);
 
     }
@@ -152,18 +157,20 @@ public abstract class BankSystem {
         return this.ssn;
     }
 
+    /* 
     public double getCheckingsAmount() {
         return this.checkingsAmount;
     }
-
+    
     public double getSavingsAmount() {
         return this.savingsAmount;
     }
-
+        */
+    
     public String getAccType() {
         return BankSystem.accType;
     }
-
+    
     /* Other Methods */
     @Override
     public boolean equals(Object other) {
@@ -186,13 +193,12 @@ public abstract class BankSystem {
                 "\nEmail: " + this.email +
                 "\nBirthday: " + this.birthday +
                 "\nAddress: " + this.address +
-                "\nSSN: " + this.ssn + 
-                "\nCheckings Amount: " + this.checkingsAmount + 
+                "\nSSN: " + this.ssn +
+                "\nCheckings Amount: " + this.checkingsAmount +
                 "\nSavings Amount: " + this.savingsAmount +
                 "\nAccount Type: " + BankSystem.accType;
 
     }
-
 
     //calculate age method
     /*public static int age(Date birthday) {
@@ -201,30 +207,27 @@ public abstract class BankSystem {
     }
         */
 
-
-/* 
+    /* 
     //OTHER METHODS
     public void checkingsWidthraw(double amount) {
         double withdrawAmount = amount;
         checkingsAmount -= withdrawAmount;
     }
-
+    
     public void checkingsDeposit(double amount) {
         double depositAmount = amount;
         checkingsAmount += depositAmount;
     }
-
+    
     public void savingsWidthraw(double amount) {
         double withdrawAmount = amount;
         savingsAmount -= withdrawAmount;
     }
-
+    
     public void savingsDeposit(double amount) {
         double depositAmount = amount;
         savingsAmount += depositAmount;
     }
         */
-
-
 
 }

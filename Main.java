@@ -17,6 +17,12 @@ public class Main {
     static int count = 0;
 
     public static void main(String[] args) {
+        //TESTER//
+        System.out.println("RUNNING TESTER");
+        BankSystemTester.main(null);
+
+
+/* 
         // Declaring Variables
         String name, password, email, address, birthday, accType = null;
         double checkingsAmount = 0, savingsAmount = 0;
@@ -132,7 +138,7 @@ public class Main {
             choice = keyboard.nextInt();
             keyboard.nextLine();
 
-            /* DEPOSIT */
+            // DEPOSIT 
             if (choice == 1) {
                 System.out.print("Would you like to deposit money to your Checkings or Savings?: ");
                 option = keyboard.nextLine().toUpperCase();
@@ -162,7 +168,7 @@ public class Main {
                         + currency.format(((Savings) users[count - 1]).getTotalSavingsAmount()));
 
             }
-            /* WITHDRAW */
+            // WITHDRAW 
             else if (choice == 2) {
                 System.out.print("Would you like to withdraw money from your Checkings or Savings?: ");
                 option = keyboard.nextLine().toUpperCase();
@@ -195,7 +201,7 @@ public class Main {
                         + currency.format(((Savings) users[count - 1]).getTotalSavingsAmount()));
 
             }
-            /* TRANSFER */
+            // TRANSFER 
             else if (choice == 3) {
 
                 System.out.println("\n1) Transfer from Checkings to Savings");
@@ -238,6 +244,8 @@ public class Main {
             }
 
         } while (true);
+
+        */
     }
 
     //determine fees from type of account
