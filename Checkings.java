@@ -5,6 +5,9 @@ public class Checkings extends BankSystem {
     protected double checkingsAmount = 0;
     protected double totalCheckingsAmount = 0;
 
+    public static final double DEFAULT_CHECKINGSAMOUNT = 50;
+   
+
     //Constructors
     //Full Constructor
     public Checkings(String name, String email, String password, String address, String birthday, int ssn,

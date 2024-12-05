@@ -34,8 +34,8 @@ public abstract class BankSystem {
     public static final int DEFAULT_SSN = 1234;
     public static final String DEFAULT_ACCTYPE = "Regular";
 
-    public static final double DEFAULT_CHECKINGSAMOUNT = 50;
-    public static final double DEFAULT_SAVINGS_AMOUNT = 50;
+   // public static final double DEFAULT_CHECKINGSAMOUNT = 50;
+   // public static final double DEFAULT_SAVINGS_AMOUNT = 80;
 
     /***  Constructor Methods ***/
     /* Default Constructor */
@@ -62,9 +62,10 @@ public abstract class BankSystem {
             throw new IllegalArgumentException("Bad deep copy");
         } else {
             this.setAll(original.name, original.email, original.password, original.address, original.birthday,
-                    original.ssn, original.checkingsAmount, original.savingsAmount, BankSystem.accType);
+                    original.ssn, BankSystem.accType);
 
         }
+
     }
 
     /* setters */
@@ -118,8 +119,7 @@ public abstract class BankSystem {
         BankSystem.accType = accType;
     }
 
-    public void setAll(String name, String email, String password, String address, String birthday, int ssn,
-            double checkingsAmount, double savingsAmount, String accType) {
+    public void setAll(String name, String email, String password, String address, String birthday, int ssn, String accType) {
         this.setName(name);
         this.setEmail(email);
         this.setPassword(password);
@@ -194,8 +194,6 @@ public abstract class BankSystem {
                 "\nBirthday: " + this.birthday +
                 "\nAddress: " + this.address +
                 "\nSSN: " + this.ssn +
-                "\nCheckings Amount: " + this.checkingsAmount +
-                "\nSavings Amount: " + this.savingsAmount +
                 "\nAccount Type: " + BankSystem.accType;
 
     }

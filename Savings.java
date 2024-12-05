@@ -5,6 +5,8 @@ public class Savings extends BankSystem {
     protected double savingsAmount = 0;
     protected double totalSavingsAmount = 0;
 
+    public static final double DEFAULT_SAVINGS_AMOUNT = 80;
+
     //Constructor
     //Full Constructor
     public Savings(String name, String email, String password, String address, String birthday, int ssn, String accType,
